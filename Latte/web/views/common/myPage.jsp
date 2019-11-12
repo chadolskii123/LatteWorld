@@ -1,0 +1,95 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<meta charset="UTF-8">
+<title>라떼는 이렇게 회원가입 했어</title>
+<style>
+#mainTop{
+	width : 85%;
+	height : 10%;
+}
+#mainTop *{
+	display : inline-block;
+	text-align : center;
+	vertical-align : middle;
+}
+#registerForm *{
+width : 150px;
+}
+#topMenu{
+position : relative;
+left : 20%;
+}
+</style>
+</head>
+<body>
+<!-- 메인 탑 메뉴 -->
+	<div id = "mainTop">
+		<div id = "topLogo">
+			<image id = "mainLogo" width = "100px" height = "100px" src="${contextPath }/views/images/MainLogo.jpg">
+		</div>
+		<div id = "topMenu">
+			<span><a>미니홈피</a></span>
+			<span><a>선물가게</a></span>
+		</div>
+		<div id = "topIcon"  style = "float : right"><input type = "button" value = "BGM 상점"></div>
+	</div>
+	
+
+	<div id = "update" align = "center">
+		<h1>마이 페이지</h1>
+		
+		<form id = "updateForm" method = "post" >
+			<label id = "nameLabel">이름</label>
+			<input name = "userName" id = "userName" type = "text" value = "${user.userName }" readonly><br>
+			<label id = "emailLabel">이메일</label>
+			<input type = "text" name = "userId" value = "${user.userId }" readonly><br>
+			<label id = "pwd1Label">비밀번호</label>
+			<input id = "userPwd1" type = "password" name = "userPwd1" placeholder = "비밀번호 입력!"><br>
+			<label id = "pwd1Check" style = "display : none">비밀번호는 영문 대문자 + 영문 소문자 + 숫자 + 특수문자 조합으로 입력해주세요.(최대 20글자)</label>
+			<label id = "pwd2Label">비밀번호 확인</label>
+			<input id = "userPwd2" type = "password" name = "userPwd2" placeholder = "비밀번호 확인!"><br>
+			<label id = "pwd2Check" style = "display : none">일치하지 않습니다.</label>			
+			
+			<hr>
+			<a href="javascript:history.back();">뒤로가기</a>
+			<label onclick = "updateInfo()">수정하기</label>
+		</form>	
+	</div>
+	
+	<script type="text/javascript">
+	var date;
+
+	function updateInfo(){
+            var passwd = document.getElementById("userPwd1");
+            var passwd2 = document.getElementById("userPwd2");
+			
+            var re = /^[a-zA-Z!-)\d]{8,15}$/;
+            if (!re.test(passwd.value)) {
+                alert('암호는 영문자와 숫자, !~)까지의 특수문자로 8글자이상 15글자 이하로 입력하세요'); //정규식과 일치하지 않는다면
+                passwd.select();
+                return false;
+            }
+
+            if (passwd.value != passwd2.value) {
+                alert("암호와 암호 확인 값이 일치하지 않습니다.");
+                passwd2.select();
+                return false;
+            }
+            
+            $("#updateForm").attr("action","<%=request.getContextPath() %>/UpdateUserInfoServlet").submit();
+            return true; //전송 처리
+   };
+
+     function goback(){
+    	 location.href = "${contextPath}/LoginServlet?";
+     }
+	
+</script>
+	
+</body>
+</html>
