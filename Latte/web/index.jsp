@@ -12,5 +12,7 @@
 	<c:set var = "contextPath" value = "${pageContext.servletContext.contextPath }" scope = "application"/>	   
 	<a href = "${contextPath }/views/main/main.jsp">메인으로</a>
 	<jsp:forward page = "views/common/mainPage.jsp"/>
+	<!-- 저장 -->
+	
 </body>
 </html>
