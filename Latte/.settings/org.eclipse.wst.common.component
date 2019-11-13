@@ -3,7 +3,7 @@
         <wb-resource deploy-path="/" source-path="/web" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/resources"/>
-        <property name="context-root" value="Latte"/>
         <property name="java-output-path" value="/Latte/build/classes"/>
+        <property name="context-root" value="LW"/>
     </wb-module>
 </project-modules>

@@ -5,123 +5,114 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <meta charset="UTF-8">
-<title>라떼는</title>
+<title>Insert title here</title>
 <style>
-
-
-div{
-	border : 3px solid black;
-	margin : 5px;
+body > div{
+border : 1px solid black;
 }
-#mainTop{
-	width : 85%;
-	height : 10%;
-}
-#mainTop *{
-	display : inline-block;
-}
-#mainLeft{
-	height : 80%;
-	width : 15%;
-	position : absolute;
-	left : 0%;
+* {
+	box-sizing: border-box;
 }
 
-#mainCenter{
-	height : 80%;
-	width : 70%;
-	position : absolute;
-	left : 15%;	
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
 }
-#mainCenter > div {
-width : 99%;
+/* Style the top navigation bar */
+.topnav {
+	padding-left: 200px;
+	padding-top: 50px;
+	overflow: hidden;
+	background-color: white;
+	height: 144px;
+	min-width : 1000px;
 }
-#goodMessage{
-	width : 98%;
-	height : 30%;
+
+/* Style the topnav links */
+.topnav a {
+	float: left;
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
 }
-#search{
-width : 98%;
+
+/* Change color on hover */
+.topnav a:hover {
+	background-color: white;
+	color: black;
+}
+div#topMenu {
+    height: 86px;
+    width: 87%;
+    min-width: 1000px;
+}
+/* Style the side navigation */
+.sidenav {
+    padding-left: 200px;
+    padding-top : 4px;
+    min-height: 759px;
+    width: 420px;
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+}
+/* Side navigation links */
+.sidenav a {
+	color: white;
+	padding: 16px;
+	text-decoration: none;
+	display: block;
+}
+
+/* Change color on hover */
+.sidenav a:hover {
+	background-color: white;
+	color: black;
+}
+
+/* Style the content */
+.content {
+    padding-left: 423px;
+    padding-top: 4px;
+    min-height: 759px;
+    min-width : 1201px;
+    width: 88.32%;
+}
+.content > *{
+	min-width : 777px;
+}
+#topMenu *{
+display : inline-block;
+}
+div#centerBottom {
+    display: inline-flex;
+    width : 100%;
+} 
+#centerBottom * {
+border : 1px solid blue;
+}
+#centerBottomLeft *{
 height : auto;
 }
-#search *{
-	height : auto;
-	display : inline;
-}
-
-#centerBottom {
-height : 63%;
-width : 98%;
-}
-
-#centerBottom * {
-display : inline-block;
-width : 40%;
-
-}
-
-#centerBottomLeft {
-position : relative;
-width : 48%;
-height : 98%;
-}
-
-#todayNews{
-width : 98%;
-height : 48%;
-}
-#todayHomepage{
-width : 98%;
-height : 22%;
-}
-#todayMember{
-width : 98%;
-height : 22%;
-}
-
-#centerBottomRight{
-position : relative;
-width : 48%;
-height : 98%;
-top : -10%;
-}
 #centerBottomRight *{
-display : block;
-width : 98%;
-height : 31%;
+height : 33%;
 }
-#goodMessageImg{
-height : 220px;
-width : 200px;
+div#centerBottomLeft {
+    width: 50%;
+    height: 100%;
 }
-#leftMenuBar{
-height : 65%;
+div#centerBottomRight {
+    width: 50%;
+    height: 100%;
 }
-#leftMenus{
-height : 48%;
-}
-#addLeftMenus{
-height : 48%;
-}
-#findZone{
-position : relative;
-height : 30%;
-top : 35%;
-}
-#leftLogin{
-height : 29%;
-}
-#join{
-cursor : pointer;
-}
-
-
-
+#goodMessage *{
+width : 50%;}
 /* drop down 시작 */
-
-
 .myName {
   position: relative;
   display: inline-block;
@@ -143,28 +134,26 @@ cursor : pointer;
 .myName-content a:hover {background-color: #ddd;}
 
 .myNameBtn:hover .myName-content {display: block;}
-
+.footer {
+  grid-area: footer;
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-align: center;
+}
 </style>
 </head>
 <body>
-
-<!-- 메인 탑 메뉴 -->
-	<div id = "mainTop">
-		<div id = "topLogo">
-			<img id = "mainLogo" width = "80px" height = "80px" src = "${contextPath }/views/images/MainLogo.jpg" onclick = "location.href ='${contextPath}/views/common/mainPage.jsp'">
+	<div class="topnav">
+		<div id="topMenu">
+			<img id="mainLogo" width="80px" height="80px" src="/LW/views/images/MainLogo.jpg" onclick="location.href ='/LW/views/common/mainPage.jsp'">
+			<div id ="link"><a href="#"	onClick="javascript:openWin()">미니홈피</a><a>일촌 신청하기</a><a>선물가게</a></div>
+			<input type="button" value="BGM 상점">
 		</div>
-		<div id = "topMenu">
-			<span><span><a href="#" onClick="javascript:openWin()">미니홈피</a></span></span>
-			<span><a>선물가게</a></span>
-		</div>
-		<div id = "topIcon"  style = "float : right"><input type = "button" value = "BGM 상점"></div>
 	</div>
-	
-<!-- 메인 왼쪽 메뉴  -->
-	<div id = "mainLeft">
-		<div id = "leftLoginBox">
-			| LATTE WORLD
-		</div>
+
+	<div class="sidenav">
+		<div id="leftLoginBox">| LATTE WORLD</div>
+
 		
 		<c:if test="${empty sessionScope.user }">
 			<div id = "leftLogin">
@@ -189,83 +178,84 @@ cursor : pointer;
 			</div>
 		</c:if>
 		<c:if test = "${!empty sessionScope.user}">
-			<div id = "leftLogin">
-				<img src="${contextPath }/views/images/pic1.jpg"height = "130px" width = "100px"><br>
-				<label class="myNameBtn"> ${user.userName }
-  					<div class="myName-content">
-					    <a href="${contextPath }/MyMiniHomeServlet?">내 미니홈피</a>
-					    <a href="#">일촌 보기</a>
-					    <a href="#">신고하기</a>
-				  	</div>
+			<div id="leftLogin">
+				<img src="/LW/views/images/pic1.jpg" height="130px"
+					width="100px"><br> <label class="myNameBtn">
+					차영욱
+					<div class="myName-content">
+						<a href="#" onClick="javascript:openWin()">내 미니홈피</a> <a href="#">일촌
+							보기</a> <a href="#">신고하기</a>
+					</div>
 				</label>님 환영합니다 :)<br>
-					<button onclick = "location.href='${contextPath}/MyPageServlet?userId=${user.userId}'">마이 페이지</button>
-					<button onclick = "location.href='${contextPath}/LogoutServlet'">로그아웃</button>
+				<button
+					onclick="location.href='/LW/MyPageServlet?userId=promote7@naver.com'">마이
+					페이지</button>
+				<button onclick="location.href='/LW/LogoutServlet'">로그아웃</button>
 			</div>
-		</c:if>		
-		<div id = "leftMenuBar">
-			
-			<div id = "leftMenus">
+		</c:if>	
+		
+		<div id="leftMenuBar">
+			<div id="leftMenus">
 				<p>일촌 신청하기</p>
 				<p>내 미니홈피</p>
 				<p>내 일촌 보기</p>
 				<p>공지사항</p>
 				<p>고객센터</p>
 			</div>
-			<div id = "addLeftMenus">
+			<div id="addLeftMenus">
 				<p>여다가는 뭘 넣지</p>
 				<p>뭘느까</p>
 				<p>음음</p>
-				<p>뭣을 너으까</p>			
+				<p>뭣을 너으까</p>
 			</div>
 		</div>
 	</div>
-	
-	<!-- 센타 부분 -->
-	
-	<div id = "mainCenter">
-		<div id = "goodMessage">
-		<img src = "${contextPath }/views/images/mainContent.jpg" height = "200px" width = "500px">
+
+	<div class="content">
+		<div id="goodMessage">
+			<img src="/LW/views/images/mainContent.jpg"
+				height="200px" width="500px">
 		</div>
-	
-		<div id = "search">
-			<select id = "searchMenu">
-				<option value = "all">전체검색</option>
-				<option value = "title">제목</option>
-				<option value = "content">내용</option>
-				<option value = "writer">작성자</option>
-			</select>
-			<input style = "width : 350px" id = "searchContent" placeholder = "라떼는 이렇게 검색헀어...!">
-			<button id = "searchBtn"> 찾 기 </button>
+
+		<div id="search">
+			<select id="searchMenu">
+				<option value="all">전체검색</option>
+				<option value="title">제목</option>
+				<option value="content">내용</option>
+				<option value="writer">작성자</option>
+			</select> <input style="width: 350px" id="searchContent"
+				placeholder="라떼는 이렇게 검색헀어...!">
+			<button id="searchBtn">찾 기</button>
 		</div>
-		
-		<div id = "centerBottom">
-			<div id = "centerBottomLeft">
-				<div id = "todayNews">라떼는 이런게 핫했다!</div>
-				<div id = "todayHomepage">오늘의 홈페이지</div>
-				<div id = "todayMember">오늘의 핫피플</div>
+
+		<div id="centerBottom">
+			<div id="centerBottomLeft">
+				<div id="todayNews">라떼는 이런게 핫했다!<br><br><br><br><br><br><br></div>
+				<div id="todayHomepage">오늘의 홈페이지</div>
+				<div id="todayMember">오늘의 핫피플</div>
 			</div>
-			<div id = "centerBottomRight">
-				<div id = "todayWriter">최고의 글</div>
-				<div id = "purchase">선물가게</div>
-				<div id = "events">이벤트</div>
+			<div id="centerBottomRight">
+				<div id="todayWriter">최고의 글</div>
+				<div id="purchase">선물가게</div>
+				<div id="events">이벤트</div>
 			</div>
 		</div>
-		
 	</div>
+	<div class="footer">
+		<p>Footer</p>
+	</div>
+	
 	
 	<script type="text/javascript">
 	function register(){
-		location.href = "${contextPath}/views/common/userJoin.jsp";
+		location.href = "/LW/views/common/userJoin.jsp";
 	}
-	
-	/* function openWin(){  
-	    window.open("${contextPath}/views/common/miniHome.jsp?userName=${user.userName }","${user.userName}님의 미니홈피", "width = 1300, height = 750, scroll = no, toolbar = no, menubar = yes, location = no, resizable = no");  
-	}
-	 */
+	 var openwin;
 	function openWin(){  
-	    window.open("${contextPath}/MyMiniHomeServlet?userId=${user.userId }","${user.userName}님의 미니홈피", "width = 1300, height = 750, scroll = no, toolbar = no, menubar = yes, location = no, resizable = no");  
+	    openwin = window.open("/LW/MyMiniHomeServlet?userId=promote7@naver.com","차영욱님의 미니홈피", "width = 1300, height = 750, scroll = no, toolbar = no, menubar = yes, location = no, resizable = no");  
 	} 
 	
 	</script>
+
 </body>
 </html>

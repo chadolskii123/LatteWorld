@@ -34,6 +34,7 @@ public class MyMiniHomeServlet extends HttpServlet {
 		UserInfo user = new UserInfo();
 		user.setUserId(userId);
 		
+		request.setAttribute("user", user);
 		request.getRequestDispatcher("views/common/miniHome.jsp").forward(request, response);		
 		
 	}
