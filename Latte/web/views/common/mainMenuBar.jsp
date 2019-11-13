@@ -5,108 +5,126 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <meta charset="UTF-8">
-<title>라떼는</title>
+<title>Insert title here</title>
 <style>
-div{
-position : absolute;
+body > div{
 border : 1px solid black;
 }
-#mainTop {
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+/* Style the top navigation bar */
+.topnav {
+	padding-left: 200px;
+	padding-top: 50px;
+	overflow: hidden;
+	background-color: white;
+	height: 144px;
+	min-width : 1000px;
+}
+
+/* Style the topnav links */
+.topnav a {
+	float: left;
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+	background-color: white;
+	color: black;
+}
+div#topMenu {
+    height: 86px;
+    width: 87%;
+    min-width: 1000px;
+}
+/* Style the side navigation */
+.sidenav {
+    padding-left: 200px;
+    padding-top : 4px;
+    min-height: 759px;
+    width: 420px;
     position: absolute;
-    width: 1400px;
-    left: 10%;
-    height: 130px;
+    z-index: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
 }
-#topLogo, #topLogo > * {
-    height: 129px;
-    width: 129px;
+/* Side navigation links */
+.sidenav a {
+	color: white;
+	padding: 16px;
+	text-decoration: none;
+	display: block;
 }
-#topMenu {
-    width: 1269px;
-    left: 9.3%;
-    height: 129px;
+
+/* Change color on hover */
+.sidenav a:hover {
+	background-color: white;
+	color: black;
 }
-div#topIcon {
-    left: 94.4%;
-    top: 20%;
-    height: 75px;
-    width: 77px;
+
+/* Style the content */
+.content {
+    padding-left: 423px;
+    padding-top: 4px;
+    min-height: 759px;
+    min-width : 1201px;
+    width: 88.32%;
 }
-span#miniHomeBtnTop {
-    position: absolute;
-    left: 20%;
-    top: 55%;
+.content > *{
+	min-width : 777px;
 }
-span#giftBtnTop {
-    position: absolute;
-    left: 45%;
-    top: 55%;
+#topMenu *{
+display : inline-block;
 }
-span#bfBtnTop {
-    position: absolute;
-    left: 31.5%;
-    top: 55%;
+/* drop down 시작 */
+.myName {
+  position: relative;
+  display: inline-block;
 }
-div#mainLeft {
-    position: absolute;
-    width: 1400px;
-    left: 10%;
-    height: 130px;
+.myName-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }
-div#leftLoginBox {
-    top: 100%;
-    width: 230px;
-    height: 30px;
+
+.myName-content a {
+  color: black;
+  text-decoration: none;
+  display: block;
 }
-div#leftLogin {
-    top: 124%;
-    width: 230px;
-}
-div#findZone {
-    width: 230px;
-    left: -1px;
-    height: 41px;
-}
-div#leftMenuBar {
-    top: 260px;
-    width: 230px;
-    height: 200px;
-}
-div#addLeftMenus {
-    width: 230px;
-    left: -1px;
-    top: 201px;
-    height: 230px;
-}
-div#leftMenus {
-    width: 230px;
-    left: -1px;
-    top: -1px;
-}
+.myName-content a:hover {background-color: #ddd;}
+
+.myNameBtn:hover .myName-content {display: block;}
 </style>
 </head>
 <body>
-
-<!-- 메인 탑 메뉴 -->
-	<div id = "mainTop">
-		<div id = "topLogo">
-			<img id = "mainLogo" width = "80px" height = "80px" src = "${contextPath }/views/images/MainLogo.jpg" onclick = "location.href ='${contextPath}/views/common/mainPage.jsp'">
+	<div class="topnav">
+		<div id="topMenu">
+			<img id="mainLogo" width="80px" height="80px" src="/LW/views/images/MainLogo.jpg" onclick="location.href ='/LW/views/common/mainPage.jsp'">
+			<div id ="link"><a href="#"	onClick="javascript:openWin()">미니홈피</a><a>일촌 신청하기</a><a>선물가게</a></div>
+			<input type="button" value="BGM 상점">
 		</div>
-		<div id = "topMenu">
-			<span id = "miniHomeBtnTop"><a href="#" onClick="javascript:openWin()">미니홈피</a></span>
-			<span id = "bfBtnTop"><a>일촌 신청하기</a></span>
-			<span id = "giftBtnTop"><a>선물가게</a></span>
-		</div>
-		<div id = "topIcon"  style = "float : right"><input type = "button" value = "BGM 상점"></div>
 	</div>
-	
-<!-- 메인 왼쪽 메뉴  -->
-	<div id = "mainLeft">
-		<div id = "leftLoginBox">
-			| LATTE WORLD
-		</div>
+
+	<div class="sidenav">
+		<div id="leftLoginBox">| LATTE WORLD</div>
+
 		
 		<c:if test="${empty sessionScope.user }">
 			<div id = "leftLogin">
@@ -124,91 +142,60 @@ div#leftMenus {
 						</tr>
 					</table>
 					<div id = "findZone">
-						? <label id ="findIdPw">이메일 / 비밀번호 찾기</label><br>
+						? <label id ="findIdPw" onclick = "find()">이메일 / 비밀번호 찾기</label><br>
 						? <label id ="join" onclick = "register()">회원 가입하기</label>
 					</div>
 				</form>
 			</div>
 		</c:if>
 		<c:if test = "${!empty sessionScope.user}">
-			<div id = "leftLogin">
-				<img src="${contextPath }/views/images/pic1.jpg"height = "130px" width = "100px"><br>
-				<label class="myNameBtn"> ${user.userName }
-  					<div class="myName-content">
-					    <a href="#" onClick="javascript:openWin()">내 미니홈피</a>
-					    <a href="#">일촌 보기</a>
-					    <a href="#">신고하기</a>
-				  	</div>
+			<div id="leftLogin">
+				<img src="/LW/views/images/pic2.jpg" height="130px"
+					width="160px"><br> <label class="myNameBtn">
+					차영욱
+					<div class="myName-content">
+						<a href="#" onClick="javascript:openWin()">내 미니홈피</a> <a href="#">일촌
+							보기</a> <a href="#">신고하기</a>
+					</div>
 				</label>님 환영합니다 :)<br>
-					<button onclick = "location.href='${contextPath}/MyPageServlet?userId=${user.userId}'">마이 페이지</button>
-					<button onclick = "location.href='${contextPath}/LogoutServlet'">로그아웃</button>
+				<button
+					onclick="location.href='/LW/MyPageServlet?userId=promote7@naver.com'">마이
+					페이지</button>
+				<button onclick="location.href='/LW/LogoutServlet'">로그아웃</button>
 			</div>
-		</c:if>		
-		<div id = "leftMenuBar">
-			
-			<div id = "leftMenus">
+		</c:if>	
+		
+		<div id="leftMenuBar">
+			<div id="leftMenus">
 				<p>일촌 신청하기</p>
 				<p>내 미니홈피</p>
 				<p>내 일촌 보기</p>
 				<p>공지사항</p>
 				<p>고객센터</p>
 			</div>
-			<div id = "addLeftMenus">
+			<div id="addLeftMenus">
 				<p>여다가는 뭘 넣지</p>
 				<p>뭘느까</p>
 				<p>음음</p>
-				<p>뭣을 너으까</p>			
+				<p>뭣을 너으까</p>
 			</div>
 		</div>
 	</div>
-	<%-- 
-	<!-- 센타 부분 -->
 	
-	<div id = "mainCenter">
-		<div id = "goodMessage">
-		<img src = "${contextPath }/views/images/mainContent.jpg" height = "200px" width = "500px">
-		</div>
-	
-		<div id = "search">
-			<select id = "searchMenu">
-				<option value = "all">전체검색</option>
-				<option value = "title">제목</option>
-				<option value = "content">내용</option>
-				<option value = "writer">작성자</option>
-			</select>
-			<input style = "width : 350px" id = "searchContent" placeholder = "라떼는 이렇게 검색헀어...!">
-			<button id = "searchBtn"> 찾 기 </button>
-		</div>
-		
-		<div id = "centerBottom">
-			<div id = "centerBottomLeft">
-				<div id = "todayNews">라떼는 이런게 핫했다!</div>
-				<div id = "todayHomepage">오늘의 홈페이지</div>
-				<div id = "todayMember">오늘의 핫피플</div>
-			</div>
-			<div id = "centerBottomRight">
-				<div id = "todayWriter">최고의 글</div>
-				<div id = "purchase">선물가게</div>
-				<div id = "events">이벤트</div>
-			</div>
-		</div>
-		
-	</div> --%>
 	
 	<script type="text/javascript">
 	function register(){
-		location.href = "${contextPath}/views/common/userJoin.jsp";
+		location.href = "/LW/views/common/userJoin.jsp";
 	}
-	
-	/* function openWin(){  
-	    window.open("${contextPath}/views/common/miniHome.jsp?userName=${user.userName }","${user.userName}님의 미니홈피", "width = 1300, height = 750, scroll = no, toolbar = no, menubar = yes, location = no, resizable = no");  
+	function find(){
+		location.href = "/LW/views/common/findUser.jsp";
 	}
-	 */
 	 var openwin;
 	function openWin(){  
-	    openwin = window.open("${contextPath}/MyMiniHomeServlet?userId=${user.userId }","${user.userName}님의 미니홈피", "width = 1300, height = 750, scroll = no, toolbar = no, menubar = yes, location = no, resizable = no");  
+	    openwin = window.open("/LW/MyMiniHomeServlet?userId=promote7@naver.com","차영욱님의 미니홈피", "width = 1300, height = 750, scroll = no, toolbar = no, menubar = yes, location = no, resizable = no");  
 	} 
 	
 	</script>
+
 </body>
 </html>
