@@ -20,7 +20,7 @@ public class UserInfo implements Serializable{
 	private int zat;
 	private int reportCount;
 	public UserInfo() {
-	
+	 
 	}
 	public UserInfo(String userId, String minihomeCode, String userPwd, String userName, int userType,
 			String userStatus, Date registerDate, int zat, int reportCount) {
