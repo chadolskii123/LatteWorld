@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
 <configuration>
-	<properties resource = "/driver.properties"/>
 	<settings>
 		<setting name = "jdbcTypeForNull" value = "NULL"/>
 	</settings>
 	<typeAliases>
-		<typeAlias type="user.model.vo.UserInfo" alias="User"/>		
+		<typeAlias type="com.kh.LatteWorld.UserInfo.model.vo.UserInfo" alias="UserInfo"/>
+		<!-- 본인거 똑바로 잘적긔 -->		
+		
 	</typeAliases>
 	<mappers>
-		<mapper resource="/mappers/user-mapper.xml"/>
+		<mapper resource="mappers/userinfo-mapper.xml"/>
 	</mappers>
-
 </configuration>
